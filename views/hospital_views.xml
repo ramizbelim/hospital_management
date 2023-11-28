@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="school_class_form_view" model="ir.ui.view">
+        <field name="name">Patient Record</field>
+        <field name="model">hospital.hospital</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="school_class_tree_view" model="ir.ui.view">
+        <field name="name">Patient Record tree</field>
+        <field name="model">hospital.hospital</field>
+        <field name="arch" type="xml">
+            <tree string="Student">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_patient_student" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.hospital</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="hospital_menu_root" name="Hospital"/>
+    <menuitem id="hospital_menu_patient" name="Patient" parent="hospital_menu_root" action="action_patient_student"/>
+    <menuitem id="hospital_menu_staff" name="staff" parent="hospital_menu_root" action="action_patient_student"/>
+</odoo>
+
