@@ -1,1 +1,1 @@
-from . import hospital_management
+from . import hospital_management,department,contacts,sale

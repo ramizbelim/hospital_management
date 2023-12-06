@@ -1,15 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="school_class_form_view" model="ir.ui.view">
         <field name="name">Patient Record</field>
         <field name="model">hospital.hospital</field>
         <field name="arch" type="xml">
-            <form string="Student">
+            <form>
+                <header>
+                    <button name="button_action" string="Test Button" class="oe_highlight" type="object" icon="fa-share-square" confirm="Are you sure to click the button ?"/>
+                    <button name="button_action_second" string="Second Button" class="oe_highlight" type="object" icon="fa-asterisk"/>
+                </header>
                 <sheet>
                     <group>
-                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="dob"/>
                         <field name="age"/>
                         <field name="address"/>
+                        <field name="child"/>
+                        <field name="gender"/>
+                        <field name="partner_id"/>
+                        <field name="tag_ids" widget="many2many_tags"/>
+                        <field name="patient_entry_id"/>
                     </group>
                 </sheet>
             </form>
@@ -19,22 +29,96 @@
         <field name="name">Patient Record tree</field>
         <field name="model">hospital.hospital</field>
         <field name="arch" type="xml">
-            <tree string="Student">
-                <field name="name"/>
+            <tree>
+                <field name="patient_id"/>
+                <field name="dob"/>
                 <field name="age"/>
                 <field name="address"/>
+                <field name="child"/>
+                <field name="gender"/>
+                <field name="partner_id"/>
+                <field name="tag_ids"/>
             </tree>
         </field>
     </record>
 
-    <record id="action_patient_student" model="ir.actions.act_window">
+
+    <record id="view_patient_data_calendar" model="ir.ui.view">
+        <field name="name">hospital.hospital.calendar</field>
+        <field name="model">hospital.hospital</field>
+        <field name="arch" type="xml">
+            <calendar string="Patient Records">
+                <field name="patient_id"/>
+                <field name="dob"/>
+                <field name="address"/>
+                <field name="child"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="partner_id"/>
+                <field name="tag_ids"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_sale_order_graph" model="ir.ui.view">
+        <field name="name">hospital.hospital.graph</field>
+        <field name="model">hospital.hospital</field>
+        <field name="arch" type="xml">
+            <graph string="Patient Records" sample="1">
+                <field name="age"/>
+                <field name="child" type="measure"/>
+                <field name="tag_ids" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_sale_order_pivot" model="ir.ui.view">
+        <field name="name">hospital.hospital.pivot</field>
+        <field name="model">hospital.hospital</field>
+        <field name="arch" type="xml">
+            <pivot string="Patient Records" sample="1">
+                <field name="patient_id" type="row"/>
+                <field name="child"/>
+                <field name="tag_ids"/>
+
+            </pivot>
+        </field>
+    </record>
+
+
+    <record id="action_patient" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.hospital</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
     </record>
-    <menuitem id="hospital_menu_root" name="Hospital"/>
-    <menuitem id="hospital_menu_patient" name="Patient" parent="hospital_menu_root" action="action_patient_student"/>
-    <menuitem id="hospital_menu_staff" name="staff" parent="hospital_menu_root" action="action_patient_student"/>
+    <record id="action_website" model="ir.actions.act_url">
+        <field name="name">google</field>
+        <field name="url">www.google.com</field>
+        <field name="target">self</field>
+    </record>
+
+    <!--    <menuitem id="hospital_menu_p"-->
+    <!--              parent="hospital_menu_patient"-->
+    <!--              name="Records"-->
+    <!--              action="action_patient"-->
+    <!--              sequence="10"/>-->
+    <!--    <menuitem id="hospital_menu_record"-->
+    <!--              parent="hospital_menu_patient"-->
+    <!--              name="Records"-->
+    <!--              action="action_patient"-->
+    <!--              sequence="2"/>-->
+
+    <!--    <menuitem id="hospital_menu_root" name="Hospital">-->
+    <!--        <menuitem id="hospital_menu_patient" name="Patient">-->
+    <!--            <menuitem id="hospital_menu_record" name="Records"-->
+    <!--                      action="action_patient_student"/>-->
+    <!--            <menuitem id="menu_item" name="2022" sequence="40">-->
+    <!--                <menuitem id="hospital_menu_record_2" name="Records 2" action="action_patient_student"/>-->
+    <!--            </menuitem>-->
+    <!--        </menuitem>-->
+    <!--        <menuitem id="hospital_menu_staff" name="Department" action="action_patient"/>-->
+
+    <!--    </menuitem>-->
 </odoo>
 
