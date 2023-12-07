@@ -6,14 +6,27 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="button_action" string="Test Button" class="oe_highlight" type="object" icon="fa-share-square" confirm="Are you sure to click the button ?"/>
+                    <button name="onchange_button_action" string="Test Button" class="oe_highlight" type="object" icon="fa-share-square" confirm="Are you sure to click the button ?"/>
                     <button name="button_action_second" string="Second Button" class="oe_highlight" type="object" icon="fa-asterisk"/>
+                    <button name="%(action_patient)d" string="Action" type="action" class="oe_stat_button" icon="fa-cut"/>
+                    <button name="%(action_department)d" string="Action" type="action" class="oe_stat_button" icon="fa-crop"/>
+<!--                    <button string="Open View" class="oe_highlight" type="object" name="button_open_view"/>-->
+
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="button_action_second" type="object" class="oe_stat_button" icon="fa-code">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Customer</span>
+                                <span class="o_stat_text">Testing</span>
+                            </div>
+                        </button>
+                    </div>
                     <group>
                         <field name="patient_id"/>
                         <field name="dob"/>
                         <field name="age"/>
+                        <field name="mobile"/>
                         <field name="address"/>
                         <field name="child"/>
                         <field name="gender"/>
@@ -33,6 +46,7 @@
                 <field name="patient_id"/>
                 <field name="dob"/>
                 <field name="age"/>
+                <field name="mobile"/>
                 <field name="address"/>
                 <field name="child"/>
                 <field name="gender"/>
@@ -51,6 +65,7 @@
                 <field name="patient_id"/>
                 <field name="dob"/>
                 <field name="address"/>
+<!--                <field name="mobile"/>-->
                 <field name="child"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -85,13 +100,13 @@
         </field>
     </record>
 
-
     <record id="action_patient" model="ir.actions.act_window">
         <field name="name">Patient</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hospital.hospital</field>
         <field name="view_mode">tree,form,kanban,pivot,graph</field>
     </record>
+
     <record id="action_website" model="ir.actions.act_url">
         <field name="name">google</field>
         <field name="url">www.google.com</field>

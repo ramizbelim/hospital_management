@@ -7,6 +7,7 @@ class hospital_management(models.Model):
 
     name = fields.Char(string="Patient Name")
     patient_id = fields.Many2one('res.partner',string="Patient Name")
+    mobile = fields.Char(string="Mobile No. ",related="patient_id.phone")
     dob = fields.Date(string="Date of Birth")
     age = fields.Integer(string="Age",compute="age_find")
     address = fields.Char(string="Address",required=True)
@@ -28,11 +29,17 @@ class hospital_management(models.Model):
         else:
             self.child = True
     @api.onchange('address')
-    def button_action(self):
+    def onchange_button_action(self):
         print("Button Clicked ........")
         print("Value of self.address:", self.address)
-        # if len(self.address)>5:
-        #     print(len(self.address))
+        try :
+            if len(self.address)>5:
+                print(len(self.address))
+            else:
+                print("Nothing to show........")
+        except TypeError:
+            print("Error: Unable to calculate length of address.")
+
 
     def button_action_second(self):
         print("Second Button Clicked!!!!!!!!!!!!!!!!!!!!!!!!")
