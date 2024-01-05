@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="action_patient" model="ir.actions.act_window">
+        <field name="name">Patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.hospital</field>
+        <field name="view_mode">tree,form</field>
+    </record>
     <record id="school_class_form_view" model="ir.ui.view">
         <field name="name">Patient Record</field>
         <field name="model">hospital.hospital</field>
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="onchange_button_action" string="Test Button" class="oe_highlight" type="object" icon="fa-share-square" confirm="Are you sure to click the button ?"/>
-                    <button name="button_action_second" string="Second Button" class="oe_highlight" type="object" icon="fa-asterisk"/>
-                    <button name="%(action_patient)d" string="Action" type="action" class="oe_stat_button" icon="fa-cut"/>
-                    <button name="%(action_department)d" string="Action" type="action" class="oe_stat_button" icon="fa-crop"/>
-<!--                    <button string="Open View" class="oe_highlight" type="object" name="button_open_view"/>-->
+                    <button name="button_in_progress" class="oe_highlight" states="draft" string="In Progress"
+                            type="object" help="Move Appointment to In Progress state"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                    <button name="onchange_button_action" string="Test Button" class="oe_highlight" type="object"
+                            icon="fa-share-square" confirm="Are you sure to click the button ?"/>
+                    <button name="button_action_second" string="Second Button" class="oe_highlight" type="object"
+                            icon="fa-asterisk"/>
+                    <button name="%(action_patient)d" string="Action" type="action" class="oe_stat_button"
+                            icon="fa-cut"/>
+                    <button name="%(action_department)d" string="Testing" type="action" class="oe_stat_button"
+                            icon="fa-crop"/>
+                    <!--                    <button string="Open View" class="oe_highlight" type="object" name="button_open_view"/>-->
 
                 </header>
                 <sheet>
@@ -21,29 +35,44 @@
                                 <span class="o_stat_text">Testing</span>
                             </div>
                         </button>
+                        <button name="button_action_second" type="object" class="oe_stat_button" icon="fa-envelope">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Save</span>
+                                <!--                                <span class="o_stat_text">Testing</span>-->
+                            </div>
+                        </button>
                     </div>
                     <group>
-                        <field name="patient_id"/>
-                        <field name="dob"/>
-                        <field name="age"/>
-                        <field name="mobile"/>
-                        <field name="address"/>
-                        <field name="child"/>
-                        <field name="gender"/>
-                        <field name="partner_id"/>
-                        <field name="tag_ids" widget="many2many_tags"/>
-                        <field name="patient_entry_id"/>
+                        <group>
+
+                            <field name="patient_id"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="child"/>
+                            <field name="city" widget="radio"/>
+
+                        </group>
+                        <group>
+                            <field name="mobile"/>
+                            <field name="address"/>
+                            <field name="partner_id"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="patient_entry_id"/>
+                            <field name="doc_attachement"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
         </field>
+
     </record>
     <record id="school_class_tree_view" model="ir.ui.view">
         <field name="name">Patient Record tree</field>
         <field name="model">hospital.hospital</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="patient_id"/>
+                <field name="patient_id" widget="handle"/>
                 <field name="dob"/>
                 <field name="age"/>
                 <field name="mobile"/>
@@ -65,7 +94,7 @@
                 <field name="patient_id"/>
                 <field name="dob"/>
                 <field name="address"/>
-<!--                <field name="mobile"/>-->
+                <!--                <field name="mobile"/>-->
                 <field name="child"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -95,45 +124,15 @@
                 <field name="patient_id" type="row"/>
                 <field name="child"/>
                 <field name="tag_ids"/>
-
             </pivot>
         </field>
     </record>
 
-    <record id="action_patient" model="ir.actions.act_window">
-        <field name="name">Patient</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hospital.hospital</field>
-        <field name="view_mode">tree,form,kanban,pivot,graph</field>
-    </record>
-
-    <record id="action_website" model="ir.actions.act_url">
+    <record id="action_my_website" model="ir.actions.act_url">
         <field name="name">google</field>
         <field name="url">www.google.com</field>
         <field name="target">self</field>
     </record>
 
-    <!--    <menuitem id="hospital_menu_p"-->
-    <!--              parent="hospital_menu_patient"-->
-    <!--              name="Records"-->
-    <!--              action="action_patient"-->
-    <!--              sequence="10"/>-->
-    <!--    <menuitem id="hospital_menu_record"-->
-    <!--              parent="hospital_menu_patient"-->
-    <!--              name="Records"-->
-    <!--              action="action_patient"-->
-    <!--              sequence="2"/>-->
-
-    <!--    <menuitem id="hospital_menu_root" name="Hospital">-->
-    <!--        <menuitem id="hospital_menu_patient" name="Patient">-->
-    <!--            <menuitem id="hospital_menu_record" name="Records"-->
-    <!--                      action="action_patient_student"/>-->
-    <!--            <menuitem id="menu_item" name="2022" sequence="40">-->
-    <!--                <menuitem id="hospital_menu_record_2" name="Records 2" action="action_patient_student"/>-->
-    <!--            </menuitem>-->
-    <!--        </menuitem>-->
-    <!--        <menuitem id="hospital_menu_staff" name="Department" action="action_patient"/>-->
-
-    <!--    </menuitem>-->
 </odoo>
 

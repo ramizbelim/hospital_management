@@ -14,8 +14,8 @@
                     <field name="description"/>
                 </xpath>
                 <page name="internal_notes" position="after">
-                    <page string='Patient Data'>
-                        <field name='patient_entry_ids'/>
+                    <page string="Patient Data">
+                        <field name="patient_entry_ids"/>
                     </page>
                 </page>
             </field>

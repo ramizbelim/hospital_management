@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <!--    <menuitem id="hospital_menu_p"-->
-    <!--              parent="hospital_menu_patient"-->
-    <!--              name="Records"-->
-    <!--              action="action_patient"-->
-    <!--              sequence="10"/>-->
-    <!--    <menuitem id="hospital_menu_root"-->
-    <!--              name="Hospital"-->
-    <!--              sequence="2"/>-->
-
-    <!--    <menuitem id="hospital_menu_patient"-->
-    <!--              parent="hospital_menu_root"-->
-    <!--              name="Patient"-->
-    <!--              sequence="2"/>-->
-
-    <!--    <menuitem id="hospital_menu_record"-->
-    <!--              parent="hospital_menu_patient"-->
-    <!--              name="Records2022"-->
-    <!--              action="action_department"-->
-    <!--              sequence="15"/>-->
-
     <menuitem id="hospital_menu_root" name="Hospital" sequence="10">
         <menuitem id="hospital_menu_patient" name="Patient">
             <menuitem id="hospital_menu_record" name="Patient Details"
                       action="action_patient"/>
             <menuitem id="menu_item" name="2022" sequence="1">
                 <menuitem id="hospital_menu_record_2" name="Records" action="action_patient"/>
-                <menuitem id="hospital_menu_url" name="url" action="action_website"/>
+                <menuitem id="hospital_menu_url" name="url" action="action_my_website"/>
             </menuitem>
         </menuitem>
         <menuitem id="hospital_menu_department" name="Department" action="action_department"/>
@@ -37,6 +16,5 @@
             <menuitem id="menu_order_sales" name="sales teams" action="sales_team.crm_team_action_sales"/>
         </menuitem>
     </menuitem>
-
 
 </odoo>

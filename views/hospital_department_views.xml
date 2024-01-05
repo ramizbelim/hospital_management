@@ -23,7 +23,7 @@
         <field name="model">hospital.department</field>
         <field name="arch" type="xml">
             <tree>
-<!--                <field name="name"/>-->
+                <field name="name"/>
                 <field name="number_of_doctor"/>
                 <field name="address"/>
                 <field name="gender"/>
@@ -50,11 +50,12 @@
             <field name="model">hospital.department</field>
             <field name="arch" type="xml">
                 <pivot string="Patient Records" sample="1">
-<!--                    <field name="name"/>-->
-                    <field name="number_of_doctor" type="measure"/>
+                    <field name="name"/>
+                    <field name="number_of_doctor"/>
                 </pivot>
             </field>
         </record>
+
     <record id="action_department" model="ir.actions.act_window">
         <field name="name">Department</field>
         <field name="type">ir.actions.act_window</field>

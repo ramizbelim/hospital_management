@@ -7,3 +7,6 @@ class Contacts(models.Model):
     patient_entry_ids = fields.One2many('hospital.hospital', "patient_entry_id","Patient")
     p_mobile = fields.Char(string="Mobile")
 
+
+
+
