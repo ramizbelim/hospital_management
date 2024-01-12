@@ -9,6 +9,7 @@
                 <field name="vat" position="after">
                     <field name="department_name"/>
                     <field name="p_mobile"/>
+                    <field name="gender"/>
                 </field>
                 <xpath expr="//field[@name='function']" position="after">
                     <field name="description"/>

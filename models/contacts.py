@@ -6,6 +6,8 @@ class Contacts(models.Model):
     description = fields.Char(string="Description")
     patient_entry_ids = fields.One2many('hospital.hospital', "patient_entry_id","Patient")
     p_mobile = fields.Char(string="Mobile")
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
+
 
 
 

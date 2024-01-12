@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='categ_id']" position="before">
-                <field name="unique_code" attrs="{'invisible': [('unique_code','=','0.0')]}"/>
+                <field name="unique_code" attrs="{'invisible': [('product_variant_count','>',1)]}"/>
+                <field name="gender"/>
             </xpath>
         </field>
     </record>

@@ -16,6 +16,19 @@
                        position="after">
                     <field name="total_one"/>
                 </xpath>
+                <xpath expr="//field[@name='product_template_id']" position="attributes">
+                    <attribute name="context">{
+                        'partner_id': parent.partner_id,
+                        'quantity': product_uom_qty,
+                        'pricelist': parent.pricelist_id,
+                        'uom':product_uom,
+                        'company_id': parent.company_id,
+                        'default_list_price': price_unit,
+                        'default_description_sale': name,
+                        'check_condition' : True,
+                        }
+                    </attribute>
+                </xpath>
             </field>
         </record>
     </data>

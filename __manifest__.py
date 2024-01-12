@@ -15,11 +15,15 @@ Patient & Records """,
     'data': [
         # 'security/account_security.xml',
         'security/ir.model.access.csv',
+        'wizard/sale_order_wizard_views.xml',
+        'views/sale_order_history_views.xml',
         'views/contact_views.xml',
         'views/hospital_department_views.xml',
         'views/hospital_views.xml',
         'views/sale_order_views.xml',
         'views/product_template_views.xml',
+        'views/res_config_settings_views.xml',
+        'views/product_views.xml',
         'views/menu.xml'
     ],
     'demo': [
