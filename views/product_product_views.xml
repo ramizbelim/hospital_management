@@ -11,5 +11,15 @@
             </xpath>
         </field>
     </record>
+    <record id="product_product_view_form_inherit_variant" model="ir.ui.view">
+        <field name="name">product.product.form.view.variant</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='barcode']" position="after">
+                <field name="unique_code"/>
+            </xpath>
+        </field>
+    </record>
 
 </odoo>
