@@ -13,7 +13,9 @@ class Sale(models.Model):
     #     if self.env.context.get('check_condition'):
     #         domain = args + [('gender',operator,'male')]
     #     return self._name_search(domain+args, limit=limit, access_rights_uid=name_get_uid)
-
+    def one_method_two_button(self):
+        print("777777777777",self.env.context)
+        pass
 
 
 

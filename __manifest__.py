@@ -15,6 +15,9 @@ Patient & Records """,
     'data': [
         # 'security/account_security.xml',
         'security/ir.model.access.csv',
+
+        'report/sale_order_report.xml',
+
         'wizard/sale_order_wizard_views.xml',
         'views/sale_order_history_views.xml',
         'views/contact_views.xml',

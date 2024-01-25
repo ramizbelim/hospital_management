@@ -6,6 +6,10 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+                <header>
+                    <button name="one_method_two_button" type="object" string="Button 1" class="oe_highlight"/>
+                    <button name="one_method_two_button" type="object" string="Button 2" class="oe_highlight"/>
+                </header>
                 <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_subtotal']"
                        position="after">
                     <button name="%(action_sale_order_history_wizard)d" type="action" string="Show History"

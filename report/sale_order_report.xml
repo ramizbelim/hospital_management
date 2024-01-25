@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <record id="inherited_sale_order_report" inherit_id="sale.report_saleorder_document">-->
+<!--        <xpath expr="//th[@name='th_description']" position="before">-->
+<!--            <span>Yash</span>-->
+<!--            &lt;!&ndash;                    <div t-field="doc.partner_id"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        t-options='{"widget": "contact", "fields": ["default_code"], "no_marker": True}'/>>&ndash;&gt;-->
+<!--        </xpath>-->
+<!--    </record>-->
+
+</odoo>
